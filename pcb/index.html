@@ -1,0 +1,1631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/dbs_Exam_demo.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Online Assessment</title>
+    <style type="text/css">
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin-right: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <form name="frmExam">
+          <!--Login Screen -->
+          <div id="divLoginScreen">
+            <div class="divTitle" style="margin-top: 4em">
+              <img src="Images/logo_2.jpg" />
+            </div>
+            <div id="divLogin">
+              <div class="login-header">
+                <img src="./Images/login1.png" style="float: left" />
+                <p
+                  id="lblLoginMsg"
+                  style="text-align: center; vertical-align: top"
+                >
+                  Enter your username and password to login
+                </p>
+              </div>
+              <div class="form-group form-group-custom">
+                <label id="lblUserName"> User Name: </label>
+                <input id="txtUserName" type="text" value="mock" />
+              </div>
+
+              <div class="form-group form-group-custom">
+                <label id="lblUserName"> Password: </label>
+                <input id="txtPass" type="password" value="mock" />
+              </div>
+
+              <div class="form-group form-group-custom">
+                <input
+                  type="button"
+                  style="
+                    padding: 3px;
+                    margin-top: 16px;
+                    width: 95px;
+                    background-image: url(./Images/login.png);
+                    background-position: left;
+                    background-repeat: no-repeat;
+                  "
+                  value="Login"
+                  onclick="return fnLogin()"
+                />
+              </div>
+            </div>
+            <!--<img id="imgdbs" src="./Images/dbs.jpg" />-->
+          </div>
+          <!--Instruction Screen -->
+          <div id="divInstructionScreen">
+            <div class="divTitle divTitle-custom">MAH-PCB (Group)-CET-2024</div>
+            <br />
+            <div style="padding: 0 12px">
+              <fieldset>
+                <legend>Examinee Detail</legend>
+                <table style="margin-left: 20px; width: 100%">
+                  <tr>
+                    <td>Exam Center:</td>
+                    <td>AHM</td>
+                    <td>Registration Number:</td>
+                    <td>1000001</td>
+                    <td rowspan="5">
+                      <img src="./Images/i_nophoto.gif" style="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Name:</td>
+                    <td>XXXX XXXX</td>
+                    <td>Exam Duration:</td>
+                    <td>180 Minutes</td>
+                  </tr>
+                  <tr>
+                    <td>Date of Exam:</td>
+                    <td>dd/mm/yyyy</td>
+                    <td>Maximum marks:</td>
+                    <td>200</td>
+                  </tr>
+                </table>
+              </fieldset>
+
+              <fieldset>
+                <legend>Exam Instructions</legend>
+                <table style="margin-left: 20px; width: 100%">
+                  <tr>
+                    <td colspan="7">
+					<div
+                        id="txtInstruction"
+                        onkeypress="return false;"
+                        style="
+                          width: 95%;
+                          height: 300px;
+                          overflow: scroll;
+                          padding-left: 20px;
+                        "
+                      >
+                     <p><strong>About Question Papers:&nbsp;</strong></p>
+<ul>
+<li>There are in all 200 Questions for this exam, <strong>Physics</strong>&ndash; 50 Questions, <strong>Chemistry</strong>&ndash; 50 Questions and <strong>Biology</strong>&ndash; 100 Questions.</li>
+<li>All questions carry 1 mark each.</li>
+<li>You will be given 180 minutes to answer all questions.</li>
+<li><strong>Exam has Sections with fixed time. For first 90 minutes, only Physics and Chemistry questions will be available. Candidates can switch between Physics and Chemistry using Section drop down available at top right position. For remaining 90 minutes, only Biology questions&nbsp;will be&nbsp;available.</strong></li>
+<li><strong>There is no negative marking.</strong></li>
+<li>Questions will be in One language &ndash; English</li>
+</ul>
+<p><strong>About answering the questions: </strong></p>
+<ul>
+<li>The candidates are requested to follow the&nbsp;instructions&nbsp;of the "Test Administrator" carefully. If any candidate does not follow the&nbsp;instructions&nbsp;/ rules, it would be treated as a case of misconduct / adoption of unfair means.&nbsp;</li>
+<li>The candidates may ask the Test Administrator their doubts or questions only before the commencement of the test. No query shall be entertained after the commencement of the examination.&nbsp;</li>
+<li>To answer a question, candidate must &lsquo;Mouse-click&rsquo; the circle besides the alternative he/she feels appropriate/correct and then Click on any of the navigation buttons i.e. &lsquo;Next&rsquo; OR &lsquo;Previous&rsquo;. The clicked alternative/option shall be treated as the answer given by the candidate for the question.&nbsp;The corresponding question number in the left panel will appear in <strong>Green</strong>.</li>
+<li>You can choose to deselect the already indicated answer by clicking the "Reset Answer" button.&nbsp;</li>
+<li>You may <strong>Mark for Review </strong>questions which you would want to reconfirm later. Questions Marked for review will appear in <strong>Blue</strong>&nbsp;colour in the navigation box.</li>
+<li>In case of power failure or Loss of internet connection or some sort of problem with the candidate machines, the candidate&rsquo;s responses are saved up to last successful click and stored in databases. When candidates logs in again, test will resume from the same stage. </li>
+<li>You would be provided with a sheet of paper for rough-work. You would need to use your own pencil.</li>
+</ul>
+<p><strong>About the Preview and Submission: </strong></p>
+<ul>
+<li>Exam will be automatically submitted at the end of stipulated time.</li>
+<li>At the End of the session, you should check the summary displayed with regard to the number of questions shown as delivered and the number of questions actually attempted by you.</li>
+<li>Please note that you will not be permitted to submit your test before the stipulated time.</li>
+</ul></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <input
+                        id="chkTerms"
+                        type="checkbox"
+                        style="width: 15px; margin-left: 0px"
+                      />
+                      <span style="color:red;">I have read and understood the instructions.All computer
+                      hardware alloted to me are in proper working condition.I
+                      declare that i am not in possession of/not wearing/not
+                      carrying any prohibited gadget like mobile phone,bluetooth
+                      devices etc/any prohibited material with me into the
+                      examination hall. I agree that in case of not adhering to
+                      the instructions, I shall be liable to be debarred from
+                      this test/or to disciplinary actions which may include ban
+                      from future test/examinations.<span>
+                    </td>
+                    <td colspan="1">
+                      <input
+                        type="button"
+                        style="
+                          margin-left: 150px;
+                          padding: 10px 20px;
+                          min-width: 125px;
+                          background-image: url(./Images/launch.gif);
+                          background-position: left;
+                          background-repeat: no-repeat;
+                        "
+                        value="I am ready to begin"
+                        onclick="return fnLaunch()"
+                      />
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+          <!--Exam Screen -->
+          <div id="divExamScreen">
+            <table
+              width="100%"
+              style="margin-left: 0px; border-spacing: 0px; border: 0px"
+            >
+              <tr
+                style="
+                  width: 100%;
+                  background-color: rgb(150, 151, 156);
+                  border-color: rgb(150, 151, 156);
+                  font-weight: bold;
+                "
+              >
+                <td
+                  colspan="1"
+                  style="
+                    font-weight: bold;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                    width: 117px;
+                  "
+                >
+                  <div style="width: 41%; margin: auto">
+                    <img src="./Images/i_nophoto.gif" style="width: 100%" />
+                  </div>
+                </td>
+                <td
+                  colspan="3"
+                  style="
+                    font-weight: bold;
+                    text-align: left;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  Name: XXX XXX[1000001] <br />Center: AHM
+                </td>
+                <td
+                  colspan="2"
+                  align="right"
+                  style="
+                    font-weight: bold;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  <span id="clock">Remaining Time: 00:30:00</span>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  <table
+                    width="100%"
+                    style="margin-left: 0px; border-spacing: 0px; border: 0px"
+                  >
+                    <tr>
+                      <td style="width: 200px; vertical-align: top">
+                        <div id="divSectionName"></div>
+                        <div id="divSectionQuestions">
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG1"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q1"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              1
+                            </label>
+                          </span>
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG2"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q2"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              2
+                            </label>
+                          </span>
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG3"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q3"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              3
+                            </label>
+                          </span>
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG4"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q4"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              4
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG5"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q5"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              5
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG6"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q6"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              6
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG7"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q7"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              7
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG8"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q8"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              8
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG9"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q9"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              9
+                            </label>
+                          </span>
+
+                          <span class="image-container">
+                            <img
+                              id="Q-IMG10"
+                              src="./Images/Rectangle_1.png"
+                              alt="Image"
+                            />
+                            <label
+                              class="QLable number-overlay"
+                              id="Q10"
+                              onclick="return fnQuestionLabelClicked(this)"
+                            >
+                              10
+                            </label>
+                          </span>
+
+                         
+                        </div>
+                        <div id="divSumaryTitle">Summary</div>
+                        <div id="divLigends" style="height: 100px">
+                          <div style="margin: 3px 0px 5px 0px">
+                            <label> Answered </label>
+                            <div class="image-container" style="float: right">
+                              <img
+                                src="./Images/Vector_1.png"
+                                alt="Image"
+                                class="badge-img"
+                              />
+                              <span id="lblAnswred" class="number-overlay"
+                                >0</span
+                              >
+                            </div>
+                          </div>
+                          <div style="margin: 3px 0px 5px 0px">
+                            <label style="width: 70%"> Not Answered </label>
+                            <div class="image-container" style="float: right">
+                              <img
+                                src="./Images/Vector_2.png"
+                                alt="Image"
+                                class="badge-img"
+                              />
+                              <span id="lblUnanswered" class="number-overlay"
+                                >1</span
+                              >
+                            </div>
+                          </div>
+                          <div style="margin: 3px 0px 5px 0px">
+                            <label style="width: 70%"> Not Visited </label>
+                            <div class="image-container" style="float: right">
+                              <img
+                                src="./Images/Rectangle_1.png"
+                                alt="Image"
+                                class="badge-img"
+                              />
+                              <span id="lblNotVisited" class="number-overlay"
+                                >9</span
+                              >
+                            </div>
+                          </div>
+                          <div style="margin: 3px 0px 5px 0px">
+                            <label style="width: 70%">
+                              Marked for Review
+                            </label>
+                            <div class="image-container" style="float: right">
+                              <img
+                                src="./Images/Ellipse_3.png"
+                                alt="Image"
+                                class="badge-img"
+                              />
+                              <span
+                                id="lblMarkedforReview"
+                                class="number-overlay"
+                                >0</span
+                              >
+                            </div>
+                          </div>
+                          <div style="margin: 3px 0px 5px 0px">
+                            <label style="width: 70%">
+                              Answered & Marked for Review
+                            </label>
+                            <div class="image-container" style="float: right">
+                              <img
+                                src="./Images/Group_1.png"
+                                alt="Image"
+                                class="badge-img"
+                              />
+                              <span
+                                id="lblAnsweredAndMarkedforReview"
+                                class="number-overlay"
+                                >0</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td style="width: 80%">
+                        <!--<input type="checkbox" onclick="return fnMarkedReview()" id="chkReview" style="width: 15px;
+            margin-left: 20px;" />Mark for Review-->
+
+                        <table
+                          style="
+                            width: 90%;
+                            margin-left: 20px;
+                            border: 1px solid #ddd;
+                            margin-top: 1%;
+                            margin-bottom: 10px;
+                          "
+                          id="zoom"
+                        >
+                          <tr>
+                            <td
+                              style="
+                                border-bottom: 1px solid #ddd;
+                                padding: 3px;
+                              "
+                            >
+                              <input
+                                type="checkbox"
+                                onclick="return fnMarkedReview()"
+                                id="chkReview"
+                                style="width: 15px; margin-left: 20px"
+                              />
+                              Mark for Review
+                            </td>
+                            <td
+                              style="
+                                vertical-align: top;
+                                padding-left: 32%;
+                                border-bottom: 1px solid #ddd;
+                                padding-top: 10px;
+                                padding-bottom: 8px;
+                              "
+                            >
+                              <div style="display: none; float: left">
+                                SELECT SECTION:
+                                <select
+                                  name="SectionSelect"
+                                  ONCHANGE="return FNSELECTIONCHANGE()"
+                                >
+                                  <option value="1">GENERAL KNOWLEDGE 1</option>
+                                  <option value="2">GENERAL KNOWLEDGE 2</option>
+                                </select>
+                              </div>
+                              <div style="float: right; padding-right: 4px">
+                                <span style="margin-left: 4px">Zoom</span>
+                                <select id="zooming" onchange="zoomings()">
+                                  <option value="100%" selected="selected">
+                                    100%
+                                  </option>
+                                  <option value="150%">150%</option>
+                                  <option value="200%">200%</option>
+                                  <option value="300%">300%</option>
+                                  <option value="400%">400%</option>
+                                </select>
+                              </div>
+                            </td>
+                            <!-- dropdown end -->
+                          </tr>
+                          <!--<TR style="display:none;">
+
+                    <TD STYLE="WIDTH: 555PX" ALIGN="RIGHT">
+                        SELECT SECTION:
+                        <SELECT NAME="SectionSelect" ONCHANGE="RETURN FNSELECTIONCHANGE()">
+                            <OPTION VALUE="1">GENERAL KNOWLEDGE 1</OPTION>
+                            <OPTION VALUE="2">GENERAL KNOWLEDGE 2</OPTION>
+                        </SELECT>
+                    </TD>
+                </TR>-->
+                          <tr>
+                            <td
+                              id="tdQuestion"
+                              colspan="2"
+                              style="
+                                vertical-align: top;
+                                padding: 16px;
+                                border-width: 2px;
+                                border-style: solid;
+                                border-color: rgb(150, 151, 156);
+                                height: 200px;
+                              "
+                            >
+                              <label id="lblQNo"> Question 1 of 25: </label
+                              ><br />
+                              <br />
+                              <div id="lblQuestion" style="overflow-y:scroll;overflow-x:hidden; height:inherit;"> Question1 </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              colspan="2"
+                              style="
+                                vertical-align: top;
+                                border-width: 2px;
+                                padding: 16px;
+                                border-style: solid;
+                                border-color: rgb(150, 151, 156);
+                                height: 190px;
+                              "
+                            >
+                              <input
+                                style="width: 15px; margin-left: 0px"
+                                type="radio"
+                                name="option"
+                                value="1"
+                                id="radOpt1"
+                              /><label id="lblOpt1">Option1</label><br />
+                              <input
+                                style="width: 15px; margin-left: 0px"
+                                type="radio"
+                                name="option"
+                                value="2"
+                                id="radOpt2"
+                              /><label id="lblOpt2">Option1</label><br />
+                              <input
+                                style="width: 15px; margin-left: 0px"
+                                type="radio"
+                                name="option"
+                                value="3"
+                                id="radOpt3"
+                              /><label id="lblOpt3">Option1</label><br />
+                              <input
+                                style="width: 15px; margin-left: 0px"
+                                type="radio"
+                                name="option"
+                                value="4"
+                                id="radOpt4"
+                              /><label id="lblOpt4">Option1</label>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr
+                      style="
+                        background-color: rgb(150, 151, 156);
+                        border-color: rgb(150, 151, 156);
+                      "
+                    >
+                      <td
+                        style="width: 300px; vertical-align: top; padding: 10px"
+                      >
+                        &nbsp;
+                      </td>
+                      <td
+                        style="
+                          width: 400px;
+                          vertical-align: middle;
+                          padding: 10px;
+                        "
+                      >
+                        <input
+                          id="btnFirst"
+                          type="button"
+                          style="
+                            margin-left: 0px;
+                            display: none;
+                            width: 80px;
+                            background-image: url(./Images/first.png);
+                            background-position: left;
+                            background-repeat: no-repeat;
+                          "
+                          value="First"
+                          onclick="return fnFirst()"
+                        />
+                        <input
+                          id="btnPrev"
+                          type="button"
+                          style="
+                            margin-left: 7px;
+                            min-width: 128px;
+                            background-image: url(./Images/prev.png);
+                            background-position: left;
+                            background-repeat: no-repeat;
+                          "
+                          value="Previous"
+                          onclick="return fnPrev()"
+                        />
+                        <input
+                          id="btnNext"
+                          type="button"
+                          style="
+                            margin-left: 15px;
+                            min-width: 128px;
+                            background-image: url(./Images/next.png);
+                            background-position: right;
+                            background-repeat: no-repeat;
+                          "
+                          value="Next"
+                          onclick="return fnNext()"
+                        />
+                        <input
+                          id="btnLast"
+                          type="button"
+                          style="
+                            margin-left: 15px;
+                            display: none;
+                            min-width: 128px;
+                            background-image: url(./Images/last.png);
+                            background-position: right;
+                            background-repeat: no-repeat;
+                          "
+                          value="Last"
+                          onclick="return fnLast()"
+                        />
+                        <input
+                          type="button"
+                          style="
+                            margin-left: 20px;
+                            min-width: 128px;
+                            background-image: url(./Images/icon_reset.png);
+                            background-position: left;
+                            background-repeat: no-repeat;
+                          "
+                          value="Reset Answer"
+                          onclick="return fnReset()"
+                        />
+                        <input
+                          type="button"
+                          style="
+                            margin-left: 15px;
+                            min-width: 128px;
+                            display: none;
+                            background-image: url(./Images/review.png);
+                            background-position: left;
+                            background-repeat: no-repeat;
+                          "
+                          value="Review Exam"
+                          onclick="return fnReview()"
+                        />
+                        <!-- <input
+                          type="button"
+                          style="
+                            margin-left: 15px;
+                            min-width: 128px;
+                            background-image: url(./Images/last_post.png);
+                            background-position: right;
+                            background-repeat: no-repeat;
+                          "
+                          value="Submit Exam"
+                          onclick="return fnEnd()"
+                        /> -->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!--Review Screen -->
+          <div id="divReviewScreen">
+            <table
+              width="100%"
+              style="margin-left: 0px; border-spacing: 0px; border: 0px"
+            >
+              <tr
+                style="
+                  width: 100%;
+                  background-color: rgb(150, 151, 156);
+                  border-color: rgb(150, 151, 156);
+                  font-weight: bold;
+                "
+              >
+                <td
+                  colspan="1"
+                  style="
+                    font-weight: bold;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                    width: 117px;
+                  "
+                >
+                  <div style="width: 20%; margin: auto">
+                    <img src="./Images/i_nophoto.gif" style="width: 100%" />
+                  </div>
+                </td>
+                <td
+                  colspan="3"
+                  style="
+                    font-weight: bold;
+                    text-align: left;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  Name: XXX XXX[1000001] <br />Center: AHM
+                </td>
+                <td
+                  colspan="2"
+                  align="right"
+                  style="
+                    font-weight: bold;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  <span id="clockReview">Remaining Time: 00:30:00</span>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" style="padding: 10px; font-size: 15px">
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label style=""> Unanswered </label
+                    ><label
+                      style="
+                        width: 10px;
+                        height: 10px;
+                        margin-left: 40px;
+                        background-color: Gray;
+                        vertical-align: middle;
+                        border: 1px solid rgb(108, 108, 108);
+                      "
+                      >&nbsp;&nbsp;&nbsp;</label
+                    >
+                  </div>
+                </td>
+                <td valign="top" style="padding: 10px; font-size: 15px">
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label style=""> Answered </label
+                    ><label
+                      style="
+                        width: 10px;
+                        height: 10px;
+                        margin-left: 40px;
+                        background-color: Green;
+                        vertical-align: middle;
+                        border: 1px solid rgb(108, 108, 108);
+                      "
+                      >&nbsp;&nbsp;&nbsp;</label
+                    >
+                  </div>
+                </td>
+                <td valign="top" style="padding: 10px; font-size: 15px">
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label style=""> Marked for Review </label
+                    ><label
+                      style="
+                        width: 10px;
+                        height: 10px;
+                        margin-left: 40px;
+                        background-color: Blue;
+                        vertical-align: middle;
+                        border: 1px solid rgb(108, 108, 108);
+                      "
+                      >&nbsp;&nbsp;&nbsp;</label
+                    >
+                  </div>
+                </td>
+                <td colspan="2" style="padding: 10px; font-size: 15px">
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label> All Questions: </label
+                    ><label
+                      id="lblAllQuestionsReview"
+                      style="margin: 5px 0px 0px 90px"
+                      >25</label
+                    >
+                  </div>
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label> Questions Answered: </label
+                    ><label
+                      id="lblAnswredReview"
+                      style="margin: 5px 0px 0px 45px"
+                      >0</label
+                    >
+                  </div>
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label> Questions Unanswered: </label
+                    ><label
+                      id="lblUnansweredReview"
+                      style="margin: 5px 0px 0px 29px"
+                      >25</label
+                    >
+                  </div>
+                  <div style="margin: 3px 0px 5px 0px">
+                    <label> Marked for Review: </label
+                    ><label
+                      id="lblMarkedforReviewReview"
+                      style="margin: 5px 0px 0px 58px"
+                      >0</label
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  colspan="5"
+                  style="height: 390px; padding: 10px; vertical-align: top"
+                >
+                  <div style="margin: 10px 0px 5px 0px">
+                    <label> Section XXX </label>
+                  </div>
+                  <div style="margin: 5px 0px 5px 0px">
+                    <label
+                      class="QLable"
+                      id="QR1"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      1
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR2"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      2
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR3"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      3
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR4"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      4
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR5"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      5
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR6"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      6
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR7"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      7
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR8"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      8
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR9"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      9
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR10"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      10
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR11"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      11
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR12"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      12
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR13"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      13
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR14"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      14
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR15"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      15
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR16"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      16
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR17"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      17
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR18"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      18
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR19"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      19
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR20"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      20
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR21"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      21
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR22"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      22
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR23"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      23
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR24"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      24
+                    </label>
+                    <label
+                      class="QLable"
+                      id="QR25"
+                      onclick="return fnReviewLabelClicked(this)"
+                    >
+                      25
+                    </label>
+                  </div>
+                  <div class="box text-center">
+                    <h4 class="text-center" style="color: red">
+                      Are You Sure You Want to Submit Exam?
+                    </h4>
+                    <input
+                      id="btnReturn"
+                      type="button"
+                      style="
+                        margin-top: 20px;
+                        width: 150px;
+                        background-image: url(./Images/return.png);
+                        background-position: right;
+                        background-repeat: no-repeat;
+                      "
+                      value="Return to Exam"
+                      onclick="return fnReturn()"
+                    />
+                    <input
+                      id="btnConfirmEnd"
+                      type="button"
+                      style="
+                        margin-top: 20px;
+                        width: 150px;
+                        background-image: url(./Images/last_post.png);
+                        background-position: right;
+                        background-repeat: no-repeat;
+                      "
+                      value="Confirm End Exam"
+                      onclick="return fnConfirmEnd()"
+                    />
+                  </div>
+                  <!--<div style="margin: 18px 0px 5px 0px">
+                                    <label>
+                                        General Knowledge 2</label></div>
+                                <div style="margin: 5px 0px 5px 0px">
+                                    <label class="QLable" id="QR26" onclick="return fnReviewLabelClicked(this)">
+                                        26</label>
+                                    <label class="QLable" id="QR27" onclick="return fnReviewLabelClicked(this)">
+                                        27</label>
+                                    <label class="QLable" id="QR28" onclick="return fnReviewLabelClicked(this)">
+                                        28</label>
+                                    <label class="QLable" id="QR29" onclick="return fnReviewLabelClicked(this)">
+                                        29</label>
+                                    <label class="QLable" id="QR30" onclick="return fnReviewLabelClicked(this)">
+                                        30</label>
+                                    <label class="QLable" id="QR31" onclick="return fnReviewLabelClicked(this)">
+                                        31</label>
+                                    <label class="QLable" id="QR32" onclick="return fnReviewLabelClicked(this)">
+                                        32</label>
+                                    <label class="QLable" id="QR33" onclick="return fnReviewLabelClicked(this)">
+                                        33</label>
+                                    <label class="QLable" id="QR34" onclick="return fnReviewLabelClicked(this)">
+                                        34</label>
+                                    <label class="QLable" id="QR35" onclick="return fnReviewLabelClicked(this)">
+                                        35</label>
+                                    <label class="QLable" id="QR36" onclick="return fnReviewLabelClicked(this)">
+                                        36</label>
+                                    <label class="QLable" id="QR37" onclick="return fnReviewLabelClicked(this)">
+                                        37</label>
+                                    <label class="QLable" id="QR38" onclick="return fnReviewLabelClicked(this)">
+                                        38</label>
+                                    <label class="QLable" id="QR39" onclick="return fnReviewLabelClicked(this)">
+                                        39</label>
+                                    <label class="QLable" id="QR40" onclick="return fnReviewLabelClicked(this)">
+                                        40</label>
+                                    <label class="QLable" id="QR41" onclick="return fnReviewLabelClicked(this)">
+                                        41</label>
+                                    <label class="QLable" id="QR42" onclick="return fnReviewLabelClicked(this)">
+                                        42</label>
+                                    <label class="QLable" id="QR43" onclick="return fnReviewLabelClicked(this)">
+                                        43</label>
+                                    <label class="QLable" id="QR44" onclick="return fnReviewLabelClicked(this)">
+                                        44</label>
+                                    <label class="QLable" id="QR45" onclick="return fnReviewLabelClicked(this)">
+                                        45</label>
+                                    <label class="QLable" id="QR46" onclick="return fnReviewLabelClicked(this)">
+                                        46</label>
+                                    <label class="QLable" id="QR47" onclick="return fnReviewLabelClicked(this)">
+                                        47</label>
+                                    <label class="QLable" id="QR48" onclick="return fnReviewLabelClicked(this)">
+                                        48</label>
+                                    <label class="QLable" id="QR49" onclick="return fnReviewLabelClicked(this)">
+                                        49</label>
+                                    <label class="QLable" id="QR50" onclick="return fnReviewLabelClicked(this)">
+                                        50</label>
+                                </div>-->
+                  <!--<div style="margin: 18px 0px 5px 0px">
+                                    <label>
+                                        Computer Communication Internet & Email</label></div>
+                                <div style="margin: 5px 0px 5px 0px">
+                                    <label class="QLable" id="QR11" onclick="return fnReviewLabelClicked(this)">
+                                        11</label>
+                                    <label class="QLable" id="QR12" onclick="return fnReviewLabelClicked(this)">
+                                        12</label>
+                                    <label class="QLable" id="QR13" onclick="return fnReviewLabelClicked(this)">
+                                        13</label>
+                                    <label class="QLable" id="QR14" onclick="return fnReviewLabelClicked(this)">
+                                        14</label>
+                                    <label class="QLable" id="QR15" onclick="return fnReviewLabelClicked(this)">
+                                        15</label>
+                                </div>
+                                <div style="margin: 18px 0px 5px 0px">
+                                    <label>
+                                        Advance tool & technique</label></div>
+                                <div style="margin: 5px 0px 5px 0px">
+                                    <label class="QLable" id="QR16" onclick="return fnReviewLabelClicked(this)">
+                                        16</label>
+                                    <label class="QLable" id="QR17" onclick="return fnReviewLabelClicked(this)">
+                                        17</label>
+                                    <label class="QLable" id="QR18" onclick="return fnReviewLabelClicked(this)">
+                                        18</label>
+                                    <label class="QLable" id="QR19" onclick="return fnReviewLabelClicked(this)">
+                                        19</label>
+                                    <label class="QLable" id="QR20" onclick="return fnReviewLabelClicked(this)">
+                                        20</label>
+                                </div>-->
+                </td>
+              </tr>
+              <tr
+                style="
+                  background-color: rgb(150, 151, 156);
+                  border-color: rgb(150, 151, 156);
+                "
+              >
+                <!--<td style="width:20%">&nbsp;</td>-->
+                <td colspan="5" style="width: 100%; vertical-align: middle">
+                  <input
+                    id="btnReturn"
+                    type="button"
+                    style="
+                      margin-left: 330px;
+                      width: 150px;
+                      background-image: url(./Images/return.png);
+                      background-position: right;
+                      background-repeat: no-repeat;
+                    "
+                    value="Return to Exam"
+                    onclick="return fnReturn()"
+                  />
+                  <input
+                    id="btnConfirmEnd"
+                    type="button"
+                    style="
+                      margin-left: 50px;
+                      width: 150px;
+                      background-image: url(./Images/last_post.png);
+                      background-position: right;
+                      background-repeat: no-repeat;
+                    "
+                    value="Confirm End Exam"
+                    onclick="return fnConfirmEnd()"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!--result Screen -->
+          <div id="dvresult" style="display: none; text-align: center">
+            <table width="100%;">
+              <tr
+                style="
+                  width: 100%;
+                  background-color: rgb(150, 151, 156);
+                  border-color: rgb(150, 151, 156);
+                  font-weight: bold;
+                "
+              >
+                <td
+                  colspan="1"
+                  style="
+                    font-weight: bold;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                    width: 117px;
+                  "
+                >
+                  <div style="width: 30%; margin: auto">
+                    <img src="./Images/i_nophoto.gif" style="width: 100%" />
+                  </div>
+                </td>
+                <td
+                  colspan="3"
+                  style="
+                    font-weight: bold;
+                    text-align: left;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  Name: XXX XXX[1000001] <br />Center: AHM
+                </td>
+                <td
+                  colspan="2"
+                  align="right"
+                  style="
+                    font-weight: bold;
+                    background: #ababab;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                ></td>
+              </tr>
+            </table>
+            <h3 style="color: green">
+              The Exam has been submitted successfully.
+            </h3>
+            <h5 style="color: blue">
+              Results are being processed and will be published later.
+            </h5>
+            <div style="justify-content: center; display: flex">
+              <div class="summary-top">
+                <fieldset style="border: 1px solid black !important">
+                  <legend class="summary-block">Summary</legend>
+                  <table
+                    width="80%"
+                    style="
+                      margin: auto;
+                      text-align: center;
+                      padding-top: 80px;
+                      margin-bottom: 2em;
+                    "
+                  >
+                    <!-- <tr>
+                      <td
+                        colspan="2"
+                        class="text-left"
+                        style="padding: 10px; color: #0d132e"
+                      >
+                        <label>Summary</label>
+                      </td>
+                    </tr> -->
+                    <tr style="font-weight: bold">
+                      <td
+                        style="font-weight: bold; text-align: left"
+                        class="w-150px"
+                      >
+                        <label class="w-80p ta-r"> Exam Name : </label>
+                      </td>
+                      <td class="ta-l">
+                        <label id="ex-name"> </label>
+                      </td>
+                    </tr>
+                    <!-- <tr style="font-weight: bold">
+                    <td style="font-weight: bold; text-align: left" class="w-150px">
+                      <label class="w-80p ta-r"> Exam Date </label>
+                    </td>
+                    <td>
+                      <label id="date"> </label>
+                    </td>
+                  </tr> -->
+                    <tr style="font-weight: bold">
+                      <td
+                        style="font-weight: bold; text-align: left"
+                        class="w-150px"
+                      >
+                        <label class="w-80p ta-r"> Roll Number : </label>
+                      </td>
+                      <td class="ta-l">
+                        <label id="ex-rollno"> </label>
+                      </td>
+                    </tr>
+                    <!-- copy this code from here -->
+                    <tr style="font-weight: bold">
+                      <td
+                        style="font-weight: bold; text-align: left"
+                        class="w-150px"
+                      >
+                        <label class="w-80p ta-r"> Questions Offered : </label>
+                      </td>
+                      <td class="ta-l">
+                        <label id="Q"> 25 </label>
+                      </td>
+                    </tr>
+                    <!-- to here  -->
+
+                    <!-- copy this code from here -->
+                    <tr style="font-weight: bold">
+                      <td
+                        style="font-weight: bold; text-align: left"
+                        class="w-150px"
+                      >
+                        <label class="w-80p ta-r">
+                          Questions Attempted :
+                        </label>
+                      </td>
+                      <td class="ta-l">
+                        <label id="QA"> 0 </label>
+                      </td>
+                    </tr>
+                    <!-- to here -->
+
+                    <!-- copy this code form here -->
+                    <tr style="font-weight: bold">
+                      <td
+                        style="font-weight: bold; text-align: left"
+                        class="w-150px"
+                      >
+                        <label class="w-80p ta-r">
+                          Questions Not Attempted :
+                        </label>
+                      </td>
+                      <td class="ta-l">
+                        <label id="QU"> 25 </label>
+                      </td>
+                    </tr>
+                    <!-- to here -->
+                  </table>
+                </fieldset>
+                <!-- </fieldset> -->
+              </div>
+            </div>
+
+            <!-- Comment this code from here -->
+            <!-- <div style="">
+              <table
+                width="400px"
+                style="margin: auto; text-align: center; padding-top: 80px"
+              >
+                <tr>
+                  <td
+                    colspan="2"
+                    class="text-center"
+                    style="padding: 10px; color: #0d132e"
+                  >
+                    <label>Exam Question Summary</label>
+                  </td>
+                </tr>
+                <tr style="font-weight: bold">
+                  <td style="font-weight: bold; text-align: left">
+                    <label> Questions Offered: </label>
+                  </td>
+                  <td>
+                    <label id="Q"> 25 </label>
+                  </td>
+                </tr>
+                <tr style="font-weight: bold">
+                  <td style="font-weight: bold; text-align: left">
+                    <label> Questions Attempted </label>
+                  </td>
+                  <td>
+                    <label id="QA"> 0 </label>
+                  </td>
+                </tr>
+                <tr style="font-weight: bold">
+                  <td style="font-weight: bold; text-align: left">
+                    <label> Questions Not Attempted: </label>
+                  </td>
+                  <td>
+                    <label id="QU"> 25 </label>
+                  </td>
+                </tr>
+                <tr style="font-weight: bold; display: none">
+                  <td style="font-weight: bold; text-align: left">
+                    <label> Score: </label>
+                  </td>
+                  <td>
+                    <label id="S"> 0 </label>
+                  </td>
+                </tr>
+              </table>
+            </div> -->
+            <!-- to here -->
+            <div class="text-center;display:none;" style="margin-top: 3em">
+              <button data-toggle="dismiss" class="btn btn-default btn-close">
+                Close
+              </button>
+            </div>
+          </div>
+          <!--Feedback Screen -->
+          <div id="feedback" style="display: none; text-align: center">
+            <table width="100%;">
+              <tr
+                style="
+                  width: 100%;
+                  background-color: rgb(150, 151, 156);
+                  border-color: rgb(150, 151, 156);
+                  font-weight: bold;
+                "
+              >
+                <td
+                  colspan="1"
+                  style="
+                    font-weight: bold;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                    width: 117px;
+                  "
+                >
+                  <div style="width: 30%; margin: auto">
+                    <img src="./Images/i_nophoto.gif" style="width: 100%" />
+                  </div>
+                </td>
+                <td
+                  colspan="3"
+                  style="
+                    font-weight: bold;
+                    text-align: left;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                >
+                  Name: XXX XXX[1000001] <br />Center: AHM
+                </td>
+                <td
+                  colspan="2"
+                  align="right"
+                  style="
+                    font-weight: bold;
+                    background: #606e91;
+                    padding: 10px;
+                    color: #eeeff1;
+                  "
+                ></td>
+              </tr>
+            </table>
+            <div style="text-align: left; padding: 1em">
+              <h4
+                style="
+                  color: blue;
+                  margin-bottom: 2.2em;
+                  text-align: center;
+                  font-weight: 600;
+                "
+              >
+                Share your valuable feedback
+              </h4>
+              <table width="100%">
+                <tr>
+                  <td
+                    colspan="8"
+                    style="padding: 6px; border-bottom: 1px dotted #ddd"
+                  >
+                    How was the IT infrastructure: computers, keyboards, mouse
+                    and seating arrangement at the center?
+                  </td>
+                  <td
+                    colspan="2"
+                    style="
+                      float: right;
+                      padding: 6px;
+                      border-bottom: 1px dotted #ddd;
+                    "
+                  >
+                    <input type="radio" name="check" /> Satisfied
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Neutral
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Dissatisfied
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="8"
+                    style="padding: 6px; border-bottom: 1px dotted #ddd"
+                  >
+                    Are you satisfied with the process followed for security
+                    frisking, entry and seat allocation for your exam?
+                  </td>
+                  <td
+                    colspan="2"
+                    style="
+                      float: right;
+                      padding: 6px;
+                      border-bottom: 1px dotted #ddd;
+                    "
+                  >
+                    <input type="radio" name="check" /> Satisfied
+                    &nbsp;&nbsp;<input type="radio" name="check" />
+                    Neutral&nbsp;&nbsp;
+                    <input type="radio" name="check" /> Dissatisfied
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="8"
+                    style="padding: 6px; border-bottom: 1px dotted #ddd"
+                  >
+                    Were the general amenities like toilets and drinking water
+                    available in proper condition at the center?
+                  </td>
+                  <td
+                    colspan="2"
+                    style="
+                      float: right;
+                      padding: 6px;
+                      border-bottom: 1px dotted #ddd;
+                    "
+                  >
+                    <input type="radio" name="check" /> Satisfied
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Neutral
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Dissatisfied
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="8"
+                    style="padding: 6px; border-bottom: 1px dotted #ddd"
+                  >
+                    How did you find the behavior of the staff at the center �
+                    Invigilators, security etc?
+                  </td>
+                  <td
+                    colspan="2"
+                    style="
+                      float: right;
+                      padding: 6px;
+                      border-bottom: 1px dotted #ddd;
+                    "
+                  >
+                    <input type="radio" name="check" /> Satisfied
+                    &nbsp;&nbsp;<input type="radio" name="check" />
+                    Neutral&nbsp;&nbsp;
+                    <input type="radio" name="check" /> Dissatisfied
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="8"
+                    style="padding: 6px; border-bottom: 1px dotted #ddd"
+                  >
+                    What is your opinion on the Software used for the
+                    examination?
+                  </td>
+                  <td
+                    colspan="2"
+                    style="
+                      float: right;
+                      padding: 6px;
+                      border-bottom: 1px dotted #ddd;
+                    "
+                  >
+                    <input type="radio" name="check" /> Satisfied
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Neutral
+                    &nbsp;&nbsp;<input type="radio" name="check" /> Dissatisfied
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="8" style="padding: 6px; vertical-align: top">
+                    Please provide any specific recommendations or suggestion to
+                    improve the experience for the candidates?
+                  </td>
+                  <td colspan="2" style="float: right; padding: 6px">
+                    <textarea
+                      row="5"
+                      placeholder="Enter your comments"
+                      style="
+                        padding: 10px;
+                        width: 100%;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                        height: 100px;
+                      "
+                    ></textarea>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="text-center" style="margin-top: 3em">
+              <button data-toggle="dismiss" class="btn btn-default btn-close">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Script to run on pageload -->
+    <script type="text/javascript" language="javascript">
+      //call after page loaded
+      window.onload = loadXML;
+    </script>
+    <script>
+      document.getElementById("ex-name").innerHTML =
+        "  <b>  Online Assessment</b>";
+
+      document.getElementById("ex-rollno").innerHTML = "  <b>1000001 </b>";
+    </script>
+    <script>
+      n = new Date();
+      y = n.getFullYear();
+      m = n.getMonth() + 1;
+      d = n.getDate();
+      document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+
+      function zoomings() {
+        var val = document.getElementById("zooming").value;
+        zoom.style.zoom = val;
+      }
+    </script>
+  </body>
+</html>

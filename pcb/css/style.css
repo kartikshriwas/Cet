@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Droid Sans", sans-serif;
+  outline: none;
+}
+.container-fluid {
+  overflow: hidden;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 10px !important;
+  margin: 0;
+  border: 1px solid #ddd !important;
+}
+#divLoginScreen {
+  display: block;
+  width: 100%;
+  height: 540px;
+}
+
+#dvresult {
+  display: block;
+  width: 100%;
+  height: 540px;
+}
+
+.divTitle {
+  text-align: center;
+  color: #fff;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 11pt;
+  *background: #1d283e;
+  padding: 11px 19px;
+}
+.divTitle-custom {
+  text-align: left;
+  color: #fff;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 11pt;
+  background: #1d283e;
+  padding: 5px 19px;
+}
+#divLogin {
+  width: 500px;
+  min-height: 200px;
+  background-color: #4593b8;
+  border: 2px solid Gray;
+  color: #162b40;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 10pt;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  padding: 1em 3em;
+}
+legend {
+  font-weight: 500;
+  font-size: 18px !important;
+  margin-bottom: 0px !important;
+}
+#imgdbs {
+  margin-top: 110px;
+  margin-left: 800px;
+  /*margin-bottom:10px;
+    margin-right:10px;*/
+}
+#divInstructionScreen {
+  display: none;
+  width: 100%;
+  min-height: 540px;
+}
+#divExamScreen {
+  display: none;
+  width: 100%;
+  min-height: 540px;
+}
+.box {
+  border: 1px solid #ddd;
+  width: 40%;
+  margin: auto;
+  padding: 1em;
+  margin-top: 62px;
+}
+#divReviewScreen {
+  display: none;
+  width: 100%;
+  height: 540px;
+}
+#divSectionName {
+  background-color: rgb(0, 172, 255);
+  height: 50px;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}
+.login-header {
+  width: 100%;
+  float: left;
+  padding: 20px 10px 10px;
+}
+.form-group-custom {
+  width: 100%;
+  float: left;
+  margin-bottom: 4px !important;
+}
+.form-group-custom > label {
+  width: 30%;
+  float: left;
+  font-size: 10pt;
+  font-weight: normal;
+  vertical-align: middle;
+  margin-top: 10px;
+  font-weight: 700;
+}
+.form-group-custom > input {
+  width: 70%;
+  float: right;
+  padding: 3px;
+}
+table {
+}
+td {
+  font-family: Verdana;
+  color: Black;
+  font-size: 10pt;
+  font-weight: normal;
+  width: 400px;
+}
+.QLable {
+  /* background-color: Gray; */
+  padding: 7px;
+  width: 32px !important;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+#divSectionQuestions {
+  height: 170px;
+  vertical-align: top;
+
+  border-top: 0px solid Gray;
+  width: 100%;
+}
+#divLigends {
+  height: auto !important;
+  vertical-align: top;
+  padding: 8px;
+  width: 100%;
+  margin-top: -2px;
+}
+#divLigendsTitle {
+  border-top: 0px solid Gray;
+  background-color: rgb(0, 172, 255);
+  height: 20px;
+  vertical-align: top;
+  width: 100%;
+  text-align: center;
+  color: White;
+}
+#divSumaryTitle {
+  border-top: 0px solid Gray;
+  background-color: rgb(0, 172, 255);
+  height: 20px;
+  vertical-align: top;
+  text-align: center;
+  width: 100%;
+  color: White;
+}
+.lblLigend {
+  margin: 10px 0px 0px 5px;
+}
+.btn-close {
+  padding: 4px 12px !important;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.number-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-img {
+  width: 25px;
+  height: 25px;
+}
+
+.w-30 {
+  width: 30%;
+  justify-content: end;
+  display: flex;
+}
+
+.w-100 {
+  width: 100%;
+  justify-content: end;
+  display: flex;
+}
+
+.w-150px {
+  width: 150px !important;
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.w-80p {
+  width: 80%;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.summary-block {
+  text-align: left;
+  font-size: 16px !important;
+  width: fit-content;
+}
+
+.summary-top {
+  width: 80%;
+  background-color: #e3e3e3;
+}
